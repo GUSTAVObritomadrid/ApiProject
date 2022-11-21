@@ -1,0 +1,22 @@
+{
+  "name": "apiproject",
+  "version": "1.0.0",
+  "description": "We will create an api that will not have an interface, in this api there will be conversations with the database MongoDB. This Api will be created in Node based on routes. The application will be placed on heroku.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GUSTAVObritomadrid/ApiProject.git"
+  },
+  "author": "Gu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GUSTAVObritomadrid/ApiProject/issues"
+  },
+  "homepage": "https://github.com/GUSTAVObritomadrid/ApiProject#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
