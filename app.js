@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
 
 //Configuration
 const DBConnection = require('./configs/DBConnection');
@@ -21,11 +22,14 @@ const estoque = require("./routers/estoque")
         console.log(`Erro ao Conectar ao Mongo: ${err}`)
     })
 
+//Body Pars
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 //Configuração de rotas
-    // app.get("/", (req, res)=>{
-    //     res.send("Temos uma rota")
-    // });
+    app.get("/", (req, res)=>{
+        res.send("Temos uma rota")
+    });
 
     app.use('/estoque', estoque)
 

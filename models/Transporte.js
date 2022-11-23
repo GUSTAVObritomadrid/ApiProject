@@ -2,10 +2,6 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
 const Transporte = new Schema ({
-    id:{
-        type: String,
-        required: true
-    },
     caminhao:{
         type: String,
         required: true

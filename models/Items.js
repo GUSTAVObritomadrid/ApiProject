@@ -2,10 +2,6 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
 const Items = new Schema ({
-    id:{
-        type: String,
-        required: true
-    },
     nome:{
         type: String,
         required: true

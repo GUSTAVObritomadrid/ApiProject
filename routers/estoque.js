@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+
 
 //Models
 require("../models/Estoque");
@@ -27,23 +27,39 @@ const Items = mongoose.model("items");
 
     })
 
-    router.post('/item/novo', (req, res)=>{
+    router.post('/item/novo', async (req, res)=>{
+        //console.log(JSON.stringify(req.body.nome))
+
         const newItem = {
-            id: '',
-            nome: '',
-            localizacao_cidade: '',
-            localizacao_estoque: '',
-            tamanho: ''
+            nome: req.body.nome,
+            localizacao_cidade: req.body.localCidade,
+            localizacao_estoque: req.body.localEstoque,
+            tamanho: req.body.tamanho
         }
     
-        new Items(newItem).save().then(()=>{
-            console.info("Item saved")
+        new Items(newItem).save().then( async (item)=>{
+            res.send("Item saved successfully")
+            await handleNewMoviment(item._id, 'Registrando', newItem.nome)
         }).catch((err)=>{
             console.error(`Unable to save item: ${err}`)
         })
+
     })
 
     //Historico
+    async function handleNewMoviment(idOfProduct, moviment, nameOfProduct){
+        const newHist = {
+            idDoItem: idOfProduct,
+            movimento: moviment,
+            nomeDoProduto: nameOfProduct
+        }
+        
+        new Historico(newHist).save().then(()=>{
+            console.log("Saved on history")
+        }).catch((err)=>{
+            console.error(`Unable to save history: ${err}`)
+        })
+    }
         
     //Estoque
 
