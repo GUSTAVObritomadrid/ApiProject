@@ -1,7 +1,11 @@
 const mongoose = require("mongoose")
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const Historico = new Schema ({
+    id:{
+        type: String,
+        required: true
+    },
     movimento:{
         type: String,
         required: true

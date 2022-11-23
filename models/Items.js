@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const Items = new Schema ({
     id:{
@@ -25,4 +25,4 @@ const Items = new Schema ({
     
 })
 
-mongoose.model("items", Items  )
+mongoose.model("items", Items)
