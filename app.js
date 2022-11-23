@@ -1,7 +1,16 @@
+//Dependencies
 const mongoose = require('mongoose')
 const express = require('express');
-const DBConnection = require('./configs/DBConnection');
 const app = express();
+
+//Configuration
+const DBConnection = require('./configs/DBConnection');
+
+//Routers config files
+const estoque = require("./routers/estoque")
+// const estoque = require("./routers/estoque")
+// const estoque = require("./routers/estoque")
+
 
 
 //Mongoose
@@ -14,9 +23,11 @@ const app = express();
 
 
 //Configuração de rotas
-    app.get("/", (req, res)=>{
-        res.send("Temos uma rota")
-    });
+    // app.get("/", (req, res)=>{
+    //     res.send("Temos uma rota")
+    // });
+
+    app.use('/estoque', estoque)
 
 //Server config
     app.listen(8081, ()=>{
